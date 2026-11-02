@@ -1,238 +1,946 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="个人简历与作品集，展示个人介绍、项目经历与联系方式。"
-    />
-    <meta name="theme-color" content="#000000" />
-    <title>个人简历与作品集</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="wordmark" href="#home" aria-label="返回首页">
-        <span class="wordmark-icon" aria-hidden="true">Y</span>
-        <span>个人作品集</span>
-      </a>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YXX's Agent — AI Product Manager</title>
+<meta name="description" content="杨轩 · AI 产品经理个人主页 — AI 应用能力 × PM 思维能力 × 审美能力">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+<style>
+/* ============ Vercel 风格设计系统 — Typeset terminal on white paper ============ */
+:root {
+  --paper: #fafafa;
+  --white: #ffffff;
+  --hairline: #ebebeb;
+  --ash: #c9c9c9;
+  --smoke: #a8a8a8;
+  --graphite: #8f8f8f;
+  --slate: #7d7d7d;
+  --stone: #666666;
+  --charcoal: #4d4d4d;
+  --obsidian: #171717;
+  --carbon: #000000;
+  --green: #297a3a;
+  --gradient-spectrum: linear-gradient(90deg, #00ff95 0%, #ffd000 25%, #ff1744 50%, #9500ff 75%, #00e5ff 100%);
+  --gradient-muted: linear-gradient(90deg, #8fb39b 0%, #b0a878 25%, #b98a91 50%, #9b8fae 75%, #8aadb8 100%);
+  --font-display: 'Orbitron', 'Geist', 'PingFang SC', sans-serif;
 
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-label="打开导航菜单"
-        aria-expanded="false"
-        aria-controls="site-nav"
-      >
-        <span></span>
-        <span></span>
-      </button>
+  --sans: 'Geist', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans SC', ui-sans-serif, system-ui, sans-serif;
+  --mono: 'Geist Mono', 'SF Mono', Menlo, Consolas, 'PingFang SC', monospace;
 
-      <nav class="site-nav" id="site-nav" aria-label="主导航">
-        <a href="#about">关于我</a>
-        <a href="#work">精选作品</a>
-        <a href="#experience">经历</a>
-        <a class="nav-contact" href="#contact">联系我 <span aria-hidden="true">↗</span></a>
-      </nav>
-    </header>
+  --radius: 6px;
+  --ring-card: 0 0 0 1px rgba(0,0,0,0.08), 0 0 0 2px #fafafa;
+  --ring-ghost: 0 0 0 1px #ebebeb;
+}
 
-    <main>
-      <section class="hero section-wrap" id="home">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="status-dot"></span> 你好，欢迎来到我的空间</p>
-          <h1>把想法，<br />变成 <span class="accent-text">有意义的作品。</span></h1>
-          <p class="hero-description">
-            我是 <strong>[你的名字]</strong>，一名专注于
-            <strong>[你的领域 / 职位]</strong> 的创作者。<br class="desktop-break" />
-            在这里，记录我的项目、想法与成长。
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#work">
-              浏览我的作品 <span aria-hidden="true">↓</span>
-            </a>
-            <a class="text-link" href="#about">认识我 <span aria-hidden="true">↗</span></a>
-          </div>
-          <div class="hero-note">
-            <span class="note-line" aria-hidden="true"></span>
-            <span>保持好奇，也保持行动。</span>
-          </div>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  font-weight: 400;
+  background: var(--paper);
+  color: var(--obsidian);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: var(--obsidian); color: var(--white); }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+@media (max-width: 640px) { .container { padding: 0 20px; } }
+
+/* ---------- 通用字阶 ---------- */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.071em;
+  text-transform: uppercase;
+  color: var(--obsidian);
+  margin-bottom: 14px;
+}
+.eyebrow .idx { color: var(--smoke); margin-left: 8px; }
+
+.display {
+  font-size: clamp(40px, 6.5vw, 64px);
+  font-weight: 450;
+  line-height: 1.02;
+  letter-spacing: -0.06em;
+}
+.display-bold { font-weight: 600; }
+.heading-lg {
+  font-size: clamp(34px, 4.6vw, 56px);
+  font-weight: 450;
+  line-height: 1.0;
+  letter-spacing: -0.06em;
+}
+.heading {
+  font-size: clamp(24px, 3vw, 30px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+}
+.body { font-size: 16px; color: var(--charcoal); line-height: 1.55; }
+.body-sm { font-size: 14px; color: var(--charcoal); line-height: 1.5; }
+.caption { font-size: 13px; color: var(--stone); line-height: 1.54; }
+
+.mono { font-family: var(--mono); }
+.grad-text {
+  background: var(--gradient-spectrum);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.grad-muted {
+  background: var(--gradient-muted);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Landing（Canno 式首屏） ---------- */
+.landing {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #f0f0f0 0%, #fafafa 100%);
+  padding: 80px 20px 96px;
+  position: relative;
+}
+.landing-stage {
+  position: relative;
+  width: min(420px, 66vw);
+}
+.landing-stage img {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+}
+.glitch { position: relative; }
+.glitch .glitch-base {
+  box-shadow: var(--ring-card);
+  animation: tv-flicker 6s steps(1, end) infinite;
+}
+.glitch-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  z-index: 1;
+}
+.g-red { filter: saturate(4) hue-rotate(-40deg) brightness(1.1); animation: glitch-red 6s steps(1, end) infinite; }
+.g-cyan { filter: saturate(3.5) hue-rotate(130deg) brightness(1.1); animation: glitch-cyan 6s steps(1, end) infinite; }
+
+/* 电视闪屏 + 短路（6s 无限循环） */
+@keyframes tv-flicker {
+  0%, 6% { filter: brightness(1); }
+  7% { filter: brightness(0.35) contrast(1.2); }
+  8% { filter: brightness(1.05); }
+  9% { filter: brightness(0.5); }
+  10%, 19% { filter: brightness(1); }
+  20% { filter: brightness(0.08) contrast(1.6); }   /* 短路：骤暗 */
+  21% { filter: brightness(1.4) contrast(1.2); }
+  22% { filter: brightness(0.3); }
+  23% { filter: brightness(1.15); }
+  24%, 40% { filter: brightness(1); }
+  41% { filter: brightness(0.45) saturate(1.6); }
+  42% { filter: brightness(1.1) contrast(1.15); }
+  43%, 58% { filter: brightness(1); }
+  59% { filter: brightness(0.12) contrast(1.8); }   /* 短路：骤暗 */
+  60% { filter: brightness(1.3) contrast(1.1); }
+  61% { filter: brightness(0.6); }
+  62%, 82% { filter: brightness(1); }
+  83% { filter: brightness(0.55); }
+  84% { filter: brightness(1.08); }
+  85%, 100% { filter: brightness(1); }
+}
+/* 短路时的 RGB 撕裂（红移层） */
+@keyframes glitch-red {
+  0%, 19.9% { opacity: 0; transform: none; }
+  20% { opacity: 0.85; clip-path: inset(12% 0 58% 0); transform: translateX(-9px); }
+  21.5% { opacity: 0.85; clip-path: inset(62% 0 8% 0); transform: translateX(7px); }
+  23%, 58.9% { opacity: 0; transform: none; }
+  59% { opacity: 0.9; clip-path: inset(38% 0 34% 0); transform: translateX(11px); }
+  60.5% { opacity: 0.8; clip-path: inset(5% 0 82% 0); transform: translateX(-6px); }
+  62%, 82.9% { opacity: 0; transform: none; }
+  83% { opacity: 0.7; clip-path: inset(48% 0 30% 0); transform: translateX(-7px); }
+  84.5%, 100% { opacity: 0; transform: none; }
+}
+/* 短路时的 RGB 撕裂（青移层） */
+@keyframes glitch-cyan {
+  0%, 19.9% { opacity: 0; transform: none; }
+  20% { opacity: 0.8; clip-path: inset(55% 0 20% 0); transform: translateX(9px); }
+  21.5% { opacity: 0.8; clip-path: inset(8% 0 74% 0); transform: translateX(-7px); }
+  23%, 58.9% { opacity: 0; transform: none; }
+  59% { opacity: 0.85; clip-path: inset(70% 0 6% 0); transform: translateX(-10px); }
+  60.5% { opacity: 0.75; clip-path: inset(30% 0 52% 0); transform: translateX(6px); }
+  62%, 82.9% { opacity: 0; transform: none; }
+  83% { opacity: 0.65; clip-path: inset(18% 0 64% 0); transform: translateX(8px); }
+  84.5%, 100% { opacity: 0; transform: none; }
+}
+/* 同步滚动的电视扫描亮条 */
+.glitch::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 10%;
+  top: -12%;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.14), rgba(255,255,255,0));
+  pointer-events: none;
+  animation: tv-roll 6s linear infinite;
+}
+@keyframes tv-roll {
+  0%, 54% { top: -12%; }
+  66%, 100% { top: 106%; }
+}
+.landing-title {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  font-family: var(--font-display);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5), 0 0 48px rgba(0,0,0,0.35);
+  pointer-events: none;
+}
+.lt-small {
+  font-size: clamp(15px, 2.6vw, 30px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.lt-big {
+  font-size: clamp(34px, 9.5vw, 132px);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+.lt-dot {
+  display: inline-block;
+  width: 0.13em; height: 0.13em;
+  border-radius: 50%;
+  background: var(--gradient-spectrum);
+  margin-left: 0.06em;
+  vertical-align: 0.9em;
+}
+.landing-by {
+  margin-top: 32px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--graphite);
+}
+.scroll-cue {
+  position: absolute;
+  bottom: 32px; left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stone);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s ease;
+}
+.scroll-cue:hover { color: var(--obsidian); }
+.scroll-cue::after {
+  content: '';
+  width: 1px; height: 28px;
+  background: linear-gradient(var(--stone), transparent);
+  animation: drip 2s ease infinite;
+}
+@keyframes drip {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ---------- AI 模型滚动条 ---------- */
+.marquee {
+  margin-top: 96px;
+  padding: 28px 0;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.model {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.071em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  white-space: nowrap;
+}
+.model img, .model svg { width: 18px; height: 18px; display: block; }
+.model .fallback-glyph { font-weight: 600; color: var(--obsidian); font-size: 13px; }
+
+section { padding: 112px 0; }
+@media (max-width: 640px) { section { padding: 80px 0; } }
+
+/* ---------- 导航 ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+  background: rgba(250, 250, 250, 0.8);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--obsidian);
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a {
+  font-size: 14px;
+  color: var(--obsidian);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.nav-links a:hover { color: var(--stone); }
+.nav-right { margin-left: auto; margin-right: -12px; display: flex; align-items: center; gap: 12px; }
+
+@media (max-width: 860px) { .nav-links { display: none; } }
+
+/* ---------- 按钮 ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius);
+  transition: all 0.15s ease;
+}
+.btn:focus-visible, a:focus-visible { outline: 2px solid var(--obsidian); outline-offset: 2px; }
+.btn-dark {
+  background: var(--obsidian);
+  color: var(--white);
+  padding: 8px 16px;
+}
+.btn-dark:hover { background: #383838; }
+.btn-ghost {
+  background: transparent;
+  color: var(--charcoal);
+  box-shadow: var(--ring-ghost);
+  padding: 8px 20px;
+}
+.btn-ghost:hover { color: var(--obsidian); box-shadow: 0 0 0 1px #c9c9c9; }
+.btn-pill {
+  background: var(--obsidian);
+  color: var(--white);
+  border-radius: 9999px;
+  padding: 4px 14px;
+  font-size: 13px;
+}
+.btn-pill:hover { background: #383838; }
+
+/* ---------- Hero ---------- */
+.hero { padding: 96px 0 88px; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+@media (max-width: 960px) { .hero-grid { grid-template-columns: 1fr; gap: 48px; } }
+.hero-eyebrows { display: flex; flex-direction: column; gap: 6px; margin-bottom: 28px; }
+.hero h1 { max-width: 640px; }
+.hero .grad-bar {
+  width: 120px; height: 3px;
+  border-radius: 2px;
+  background: var(--gradient-spectrum);
+  margin: 32px 0;
+}
+.hero .sub-en {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  margin-bottom: 12px;
+}
+.hero p.lede { max-width: 520px; margin-bottom: 36px; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* CLI 面板 — the terminal IS the marketing */
+.cli {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--ring-card);
+  padding: 20px;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 2.0;
+  color: var(--obsidian);
+}
+.cli .cmd::before { content: '▲ '; color: var(--carbon); font-weight: 600; }
+.cli .ok::before { content: '✓ '; color: var(--green); }
+.cli .out { color: var(--charcoal); padding-left: 20px; display: block; }
+.cli .dim { color: var(--smoke); }
+.cli .cursor {
+  display: inline-block;
+  width: 7px; height: 15px;
+  background: var(--obsidian);
+  vertical-align: -2px;
+  animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ---------- 能力区块头部 ---------- */
+.sec-head { max-width: 720px; margin-bottom: 56px; }
+.sec-head h2 { margin-top: 2px; }
+.sec-head p { margin-top: 18px; }
+.sec-head .en-echo {
+  display: block;
+  font-family: var(--mono);
+  font-size: clamp(13px, 1.6vw, 15px);
+  letter-spacing: 0.071em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  margin-top: 16px;
+}
+
+/* ---------- 卡片 ---------- */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--ring-card);
+  padding: 24px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card:hover { transform: translateY(-2px); }
+.card .tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.071em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  margin-bottom: 14px;
+}
+.card h3 { font-size: 17px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 8px; }
+.card p { font-size: 14px; color: var(--charcoal); line-height: 1.6; }
+.card .card-meta {
+  margin-top: 18px; padding-top: 14px;
+  border-top: 1px solid var(--hairline);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.071em;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+
+.card-dark { background: var(--obsidian); }
+.card-dark h3 { color: var(--white); }
+.card-dark p { color: #a3a3a3; }
+.card-dark .tag { color: #8f8f8f; }
+.card-dark .card-meta { color: #8f8f8f; border-top-color: #333; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 860px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+/* ---------- 能力 01：双栏 ---------- */
+.split { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: start; }
+@media (max-width: 960px) { .split { grid-template-columns: 1fr; gap: 40px; } }
+.pipe {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.071em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+}
+.pipe span.step {
+  box-shadow: var(--ring-ghost);
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 5px 10px;
+}
+.pipe .arr { color: var(--smoke); }
+
+/* ---------- 大字宣言 ---------- */
+.manifesto {
+  font-size: clamp(28px, 4.2vw, 44px);
+  font-weight: 450;
+  letter-spacing: -0.05em;
+  line-height: 1.15;
+  max-width: 880px;
+}
+.manifesto .dim { color: var(--ash); }
+
+/* ---------- 作品 ---------- */
+.work-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--hairline);
+}
+.work-meta-row .role { font-family: var(--mono); font-size: 11px; letter-spacing: 0.071em; text-transform: uppercase; color: var(--stone); }
+.link-arrow {
+  font-size: 13px;
+  color: var(--obsidian);
+  text-decoration: none;
+  font-weight: 500;
+}
+.link-arrow:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---------- CTA ---------- */
+.cta { text-align: left; }
+.cta .display { max-width: 820px; }
+
+/* ---------- 页脚 ---------- */
+footer { background: var(--obsidian); color: var(--white); padding: 72px 0 40px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; }
+@media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; gap: 36px; } }
+.footer-brand p { margin-top: 14px; font-size: 14px; color: #a3a3a3; max-width: 320px; line-height: 1.6; }
+.footer-col h5 {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.071em;
+  text-transform: uppercase;
+  color: #8f8f8f;
+  margin-bottom: 16px;
+}
+.footer-col ul { list-style: none; display: grid; gap: 12px; }
+.footer-col a { color: #d4d4d4; text-decoration: none; font-size: 14px; transition: color 0.15s ease; }
+.footer-col a:hover { color: #fff; }
+.footer-bottom {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid #2e2e2e;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.071em;
+  text-transform: uppercase;
+  color: #8f8f8f;
+}
+
+/* ---------- 入场动画 ---------- */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal.d1 { transition-delay: 0.08s; }
+.reveal.d2 { transition-delay: 0.16s; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+  .cli .cursor { animation: none; }
+  .glitch .glitch-base, .glitch::after { animation: none; }
+  .glitch-layer { display: none; }
+  .marquee-track { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== 导航 ===================== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <!-- TODO: 替换成你的名字 / 品牌名 -->
+    <a class="wordmark" href="#top">
+      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5L15 14H1z" fill="#000"/></svg>
+      AI·PM
+    </a>
+    <ul class="nav-links">
+      <li><a href="#ai">AI 应用</a></li>
+      <li><a href="#pm">PM 思维</a></li>
+      <li><a href="#aesthetic">审美</a></li>
+      <li><a href="#works">作品</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="btn btn-pill" href="#contact">联系我</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ===================== Landing（Canno 式首屏） ===================== -->
+<header class="landing">
+  <figure class="landing-stage reveal">
+    <div class="glitch">
+      <img class="glitch-base" src="assets/images/landing.png" alt="古典雕塑与电路机械融合的赛博格胸像">
+      <img class="glitch-layer g-red" src="assets/images/landing.png" alt="" aria-hidden="true">
+      <img class="glitch-layer g-cyan" src="assets/images/landing.png" alt="" aria-hidden="true">
+    </div>
+    <figcaption class="landing-title">
+      <span class="lt-small">Welcome to</span>
+      <span class="lt-big">YXX's Agent<span class="lt-dot"></span></span>
+    </figcaption>
+  </figure>
+  <p class="landing-by reveal d1">Yang Xuan — AI Product Manager</p>
+  <a class="scroll-cue" href="#hero" aria-label="向下滚动">Scroll</a>
+</header>
+
+<!-- ===================== Hero ===================== -->
+<header class="hero" id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrows reveal">
+          <span class="eyebrow">AI Product Manager<span class="idx">— Portfolio</span></span>
         </div>
-
-        <div class="hero-art" aria-label="由彩色粒子组成的抽象星云">
-          <canvas id="constellation-canvas" aria-hidden="true"></canvas>
-          <div class="art-glow" aria-hidden="true"></div>
-          <div class="art-caption">
-            <span class="caption-label">CURRENT FOCUS</span>
-            <span>[你正在探索的方向]</span>
-          </div>
-          <span class="art-index">01 — 04</span>
-        </div>
-      </section>
-
-      <div class="marquee" aria-label="设计、创造、持续探索">
-        <div class="marquee-track" aria-hidden="true">
-          <span>设计</span><i>✳</i><span>创造</span><i>✳</i><span>持续探索</span><i>✳</i>
-          <span>设计</span><i>✳</i><span>创造</span><i>✳</i><span>持续探索</span><i>✳</i>
-          <span>设计</span><i>✳</i><span>创造</span><i>✳</i><span>持续探索</span><i>✳</i>
+        <h1 class="display display-bold reveal d1">把 <span class="grad-text">AI</span> 的能力，<br>做成可信的产品。</h1>
+        <div class="grad-bar reveal d1"></div>
+        <p class="sub-en reveal d2">From Prompt to Product.</p>
+        <p class="body lede reveal d2">
+          您好，我叫<b style="font-weight:500">杨轩</b>。我是一名 AI 产品经理。我相信这一代 PM 的核心竞争力，
+          是 <b style="font-weight:500">AI 应用能力 × 产品思维 × 审美</b> 的组合——
+          从想法到上线，一个人就是一条完整流水线。<br>欢迎来到 YXX 的 Agent。
+        </p>
+        <div class="hero-actions reveal d2">
+          <a class="btn btn-dark" href="#ai">看我的三种能力</a>
+          <a class="btn btn-ghost" href="#works">精选作品</a>
         </div>
       </div>
 
-      <section class="about section-wrap section-spacing" id="about">
-        <div class="section-heading">
-          <p class="eyebrow">01 / 关于我</p>
-          <h2>用心做好每一件<br />值得做的事。</h2>
+      <div class="cli reveal d2" aria-label="终端风格的自我介绍">
+        <div class="cmd">whoami</div>
+        <span class="out">AI Product Manager</span>
+        <div class="cmd">stack --core</div>
+        <span class="ok">Dify · Prompt Engineering · Agent Workflow</span>
+        <span class="ok">PRD · 0→1 Design · Data-Driven</span>
+        <span class="ok">Typography · Design System · HTML/CSS</span>
+        <div class="cmd">status --now</div>
+        <span class="ok">Open to collaborate <span class="cursor"></span></span>
+      </div>
+    </div>
+
+    <div class="marquee reveal" aria-label="日常使用的 AI 模型与工具">
+      <div class="marquee-track">
+        <span class="model"><img src="https://cdn.simpleicons.org/deepseek/171717" alt="" loading="lazy" onerror="this.style.display='none'">DeepSeek</span>
+        <span class="model"><img src="https://cdn.simpleicons.org/claude/171717" alt="" loading="lazy" onerror="this.style.display='none'">Claude</span>
+        <span class="model"><img src="https://cdn.simpleicons.org/openai/171717" alt="" loading="lazy" onerror="this.style.display='none'">ChatGPT</span>
+        <span class="model"><span class="fallback-glyph">▲</span>Kimi</span>
+        <span class="model"><img src="https://cdn.simpleicons.org/cursor/171717" alt="" loading="lazy" onerror="this.style.display='none'">Cursor</span>
+        <span class="model"><img src="https://cdn.simpleicons.org/googlegemini/171717" alt="" loading="lazy" onerror="this.style.display='none'">Gemini</span>
+        <span class="model"><span class="fallback-glyph">▲</span>WorkBuddy</span>
+        <span class="model"><img src="https://cdn.simpleicons.org/dify/171717" alt="" loading="lazy" onerror="this.style.display='none'">Dify</span>
+        <!-- 第二份轨道（无缝循环） -->
+        <span class="model" aria-hidden="true"><img src="https://cdn.simpleicons.org/deepseek/171717" alt="" loading="lazy" onerror="this.style.display='none'">DeepSeek</span>
+        <span class="model" aria-hidden="true"><img src="https://cdn.simpleicons.org/claude/171717" alt="" loading="lazy" onerror="this.style.display='none'">Claude</span>
+        <span class="model" aria-hidden="true"><img src="https://cdn.simpleicons.org/openai/171717" alt="" loading="lazy" onerror="this.style.display='none'">ChatGPT</span>
+        <span class="model" aria-hidden="true"><span class="fallback-glyph">▲</span>Kimi</span>
+        <span class="model" aria-hidden="true"><img src="https://cdn.simpleicons.org/cursor/171717" alt="" loading="lazy" onerror="this.style.display='none'">Cursor</span>
+        <span class="model" aria-hidden="true"><img src="https://cdn.simpleicons.org/googlegemini/171717" alt="" loading="lazy" onerror="this.style.display='none'">Gemini</span>
+        <span class="model" aria-hidden="true"><span class="fallback-glyph">▲</span>WorkBuddy</span>
+        <span class="model" aria-hidden="true"><img src="https://cdn.simpleicons.org/dify/171717" alt="" loading="lazy" onerror="this.style.display='none'">Dify</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== 01 AI 应用能力 ===================== -->
+<section id="ai">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Capability 01<span class="idx">/ 03</span></span>
+      <h2 class="heading-lg">AI 应用能力</h2>
+      <span class="en-echo">AI Application — Build, not just talk.</span>
+      <p class="body">
+        不停留在「会用 ChatGPT」。我能用 Dify 搭建真实可用的 AI 应用与工作流，
+        用结构化输出保证结果可靠，用 AI 结对编程把想法快速变成可运行的东西。
+      </p>
+    </div>
+
+    <div class="split">
+      <div class="reveal">
+        <div class="cli" aria-label="Dify 工作流示例">
+          <div class="cmd">dify workflow run "需求洞察"</div>
+          <span class="out"><span class="dim">[1/4]</span> input · 用户声音聚类</span>
+          <span class="out"><span class="dim">[2/4]</span> llm · 痛点归纳 + 优先级</span>
+          <span class="out"><span class="dim">[3/4]</span> validate · 结构化输出校验</span>
+          <span class="out"><span class="dim">[4/4]</span> output · 需求清单.json</span>
+          <span class="ok">done · 3.2s</span>
         </div>
-        <div class="about-content">
-          <p class="about-lead">
-            我相信好的作品，始于对问题的理解，成于对细节的坚持。
-          </p>
-          <p class="body-copy">
-            [用几句话介绍你自己：你擅长什么、关注什么，以及你希望创造怎样的价值。可以写下你的工作方式、兴趣，或一个让你一直保持热情的理由。]
-          </p>
-          <div class="tag-list" aria-label="专业方向（请替换为你的技能）">
-            <span>[专业方向 / 技能]</span>
-            <span>[专业方向 / 技能]</span>
-            <span>[专业方向 / 技能]</span>
-          </div>
+        <div class="pipe">
+          <span class="step">Input</span><span class="arr">→</span>
+          <span class="step">Orchestrate</span><span class="arr">→</span>
+          <span class="step">Validate</span><span class="arr">→</span>
+          <span class="step">Ship</span>
         </div>
-      </section>
+      </div>
 
-      <section class="work-section section-spacing" id="work">
-        <div class="section-wrap">
-          <div class="section-title-row">
-            <div class="section-heading">
-              <p class="eyebrow">02 / 精选作品</p>
-              <h2>一些让我骄傲的<br />小小成果。</h2>
-            </div>
-            <p class="section-aside">每个项目，都是一次新的<br />观察、尝试与学习。</p>
-          </div>
-
-          <div class="project-grid">
-            <article class="project-card project-card-large">
-              <a class="project-visual visual-green" href="#contact" aria-label="联系我，了解项目一">
-                <div class="visual-window">
-                  <div class="window-bar"><span></span><span></span><span></span></div>
-                  <div class="window-content">
-                    <span class="visual-kicker">PROJECT 01</span>
-                    <span class="visual-title">让体验<br />更进一步。</span>
-                    <span class="visual-cta">探索项目 <b aria-hidden="true">↗</b></span>
-                  </div>
-                  <div class="visual-circle"></div>
-                </div>
-                <span class="visual-number">01</span>
-              </a>
-              <div class="project-info">
-                <div>
-                  <h3>[项目名称 / 品牌官网设计]</h3>
-                  <p>[用一句话介绍项目目标和你的贡献]</p>
-                </div>
-                <span class="project-arrow" aria-hidden="true">↗</span>
-              </div>
-              <div class="project-tags"><span>[你的角色]</span><span>[项目年份]</span></div>
-            </article>
-
-            <article class="project-card">
-              <a class="project-visual visual-peach" href="#contact" aria-label="联系我，了解项目二">
-                <div class="poster">
-                  <span class="poster-small">A BETTER WAY TO</span>
-                  <span class="poster-title">make<br />space.</span>
-                  <span class="poster-circle"></span>
-                  <span class="poster-footer">PROJECT 02 · [年份]</span>
-                </div>
-                <span class="visual-number">02</span>
-              </a>
-              <div class="project-info">
-                <div>
-                  <h3>[项目名称 / 数字产品体验]</h3>
-                  <p>[简要说明你解决的问题]</p>
-                </div>
-                <span class="project-arrow" aria-hidden="true">↗</span>
-              </div>
-              <div class="project-tags"><span>[你的角色]</span><span>[项目年份]</span></div>
-            </article>
-
-            <article class="project-card">
-              <a class="project-visual visual-blue" href="#contact" aria-label="联系我，了解项目三">
-                <div class="blue-card">
-                  <span class="blue-label">A STUDY IN FORM</span>
-                  <div class="blue-flower" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-                  <span class="blue-title">日常<br />新灵感</span>
-                  <span class="blue-footer">PROJECT 03</span>
-                </div>
-                <span class="visual-number">03</span>
-              </a>
-              <div class="project-info">
-                <div>
-                  <h3>[项目名称 / 视觉设计探索]</h3>
-                  <p>[简要说明项目成果或亮点]</p>
-                </div>
-                <span class="project-arrow" aria-hidden="true">↗</span>
-              </div>
-              <div class="project-tags"><span>[你的角色]</span><span>[项目年份]</span></div>
-            </article>
-          </div>
+      <div class="grid-2 reveal d1">
+        <div class="card">
+          <div class="tag">Dify</div>
+          <h3>AI 应用搭建</h3>
+          <p>用 Dify 从零搭建 AI 应用：知识库问答、多步骤工作流、结构化输出，交付的是能跑的产品，不是演示 Demo。</p>
+          <div class="card-meta">Workflow · RAG · Structured Output</div>
         </div>
-      </section>
-
-      <section class="experience section-wrap section-spacing" id="experience">
-        <div class="section-heading">
-          <p class="eyebrow">03 / 经历与成长</p>
-          <h2>一步一步，<br />走到现在。</h2>
+        <div class="card">
+          <div class="tag">Prompt</div>
+          <h3>Prompt 工程</h3>
+          <p>把模糊需求翻译成稳定的提示词系统：角色定义、约束设计、输出格式控制，让结果可复现、可迭代。</p>
+          <div class="card-meta">System Prompt · Few-shot · Guardrail</div>
         </div>
-        <div class="timeline">
-          <article class="timeline-item">
-            <span class="timeline-date">20XX — 至今</span>
-            <div>
-              <h3>[职位名称] <span>@ [公司 / 团队名称]</span></h3>
-              <p>[描述你负责的工作，以及一项有代表性的成果。]</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <span class="timeline-date">20XX — 20XX</span>
-            <div>
-              <h3>[职位名称] <span>@ [公司 / 团队名称]</span></h3>
-              <p>[补充过往经历、参与的项目或积累的能力。]</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <span class="timeline-date">20XX — 20XX</span>
-            <div>
-              <h3>[专业 / 学位] <span>@ [学校名称]</span></h3>
-              <p>[可写教育背景、研究方向或特别的学习经历。]</p>
-            </div>
-          </article>
+        <div class="card">
+          <div class="tag">Agent</div>
+          <h3>Agent 工作流编排</h3>
+          <p>把复杂任务拆解为多智能体协作链路：分工、校验、兜底，理解 Agent 的能力边界与失败模式。</p>
+          <div class="card-meta">Multi-Agent · Routing · Fallback</div>
         </div>
-      </section>
-
-      <section class="contact-section" id="contact">
-        <div class="contact-inner section-wrap">
-          <p class="eyebrow">04 / 联系我</p>
-          <h2>好点子，值得<br />一起聊聊。</h2>
-          <p>如果你有有趣的项目、合作想法，或只是想打个招呼，欢迎联系我。</p>
-          <a class="button button-light" href="mailto:your.email@example.com">
-            your.email@example.com <span aria-hidden="true">↗</span>
-          </a>
-          <span class="contact-note">记得把按钮里的邮箱替换成你的联系方式。</span>
-          <div class="contact-decoration" aria-hidden="true">✳</div>
+        <div class="card">
+          <div class="tag">AI × Dev</div>
+          <h3>AI 辅助研发</h3>
+          <p>用 AI 结对编程完成从原型到代码的验证闭环——本页面的设计与实现，就是这条工作流的产物。</p>
+          <div class="card-meta">Cursor · Vibe Coding · Ship Fast</div>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer class="site-footer section-wrap">
-      <a class="wordmark footer-mark" href="#home">
-        <span class="wordmark-icon" aria-hidden="true">Y</span>
-        <span>个人作品集</span>
-      </a>
-      <span>用心创造，持续生长。<span id="current-year"></span></span>
-      <a class="back-to-top" href="#home">回到顶部 ↑</a>
-    </footer>
-  </body>
+<!-- ===================== 02 PM 思维能力 ===================== -->
+<section id="pm">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Capability 02<span class="idx">/ 03</span></span>
+      <h2 class="heading-lg">PM 思维能力</h2>
+      <span class="en-echo">Product Thinking — Define the problem first.</span>
+      <p class="body">
+        工具会过时，思维方式不会。我的产品方法论：先定义真问题，再设计解法，
+        用数据验证假设，用文档对齐团队。
+      </p>
+    </div>
+
+    <p class="manifesto reveal" style="margin-bottom:56px">
+      先定义<span class="dim">问题</span>，再谈<span class="dim">方案</span>。<br>
+      需求的背后是动机，功能的背后是<span class="dim">取舍</span>。
+    </p>
+
+    <div class="grid-2">
+      <div class="card reveal">
+        <div class="tag">Insight</div>
+        <h3>需求分析</h3>
+        <p>从用户声音与竞品动态中识别真伪需求，建立优先级判断框架——用 AI 辅助聚类分析，用 PM 的判断力做取舍。</p>
+        <div class="card-meta">User Research · Prioritization · 竞品拆解</div>
+      </div>
+      <div class="card card-dark reveal d1">
+        <div class="tag">0 → 1</div>
+        <h3>从零到一的产品设计</h3>
+        <p>在没有参照系时定义产品：目标用户、核心场景、最小可行闭环。用最快的方式验证方向，而不是堆功能。</p>
+        <div class="card-meta">MVP · Core Loop · Scenario Design</div>
+      </div>
+      <div class="card reveal">
+        <div class="tag">Document</div>
+        <h3>PRD 与表达</h3>
+        <p>把想法沉淀为清晰的 PRD 与原型，让设计、研发、AI 工具都能准确执行——文档的精度决定协作的效率。</p>
+        <div class="card-meta">PRD · Prototype · Alignment</div>
+      </div>
+      <div class="card reveal d1">
+        <div class="tag">Data</div>
+        <h3>数据驱动迭代</h3>
+        <p>小步上线，用数据验证每一次假设。定义北极星指标与过程指标，让迭代方向有依据而非凭感觉。</p>
+        <div class="card-meta">North Star · A/B · Iteration</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 03 审美能力 ===================== -->
+<section id="aesthetic">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Capability 03<span class="idx">/ 03</span></span>
+      <h2 class="heading-lg">审美能力</h2>
+      <span class="en-echo">Aesthetic Sense — Taste is a skill.</span>
+      <p class="body">
+        审美不是「感觉不错」，而是一套可以落地、可以复用的标准。它决定了一个产品给人的第一印象，
+        也决定了细节的最终品质。
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="tag">Typography</div>
+        <h3>版式与留白</h3>
+        <p>用字重、字距和留白建立层次，而不是用颜色和边框堆砌。大字是态度，留白是自信。</p>
+        <div class="card-meta">Hierarchy · Rhythm · Whitespace</div>
+      </div>
+      <div class="card reveal d1">
+        <div class="tag">System</div>
+        <h3>设计系统思维</h3>
+        <p>先建立 token 和组件规范，再画界面。一致性不是约束，而是让产品「看起来被认真对待过」。</p>
+        <div class="card-meta">Design Token · Component · Consistency</div>
+      </div>
+      <div class="card reveal d2">
+        <div class="tag">Detail</div>
+        <h3>细节与克制</h3>
+        <p>对齐差 1px 能看出来，配色多一档能感觉到。克制用色、克制装饰——你正在看的这个页面，就是审美能力的证明。</p>
+        <div class="card-meta">Craft · Restraint · This Page Itself</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 04 精选作品 ===================== -->
+<section id="works" style="padding-top:0">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Selected Works<span class="idx">/ 04</span></span>
+      <h2 class="heading">少而精，每一件都算数。</h2>
+      <p class="body" style="margin-top:14px">作品在积累中——我更愿意展示思考的完整度。以下为概念设计，正式项目持续更新。</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card reveal">
+        <div class="tag">Concept · AI Assistant</div>
+        <h3>AI 对话助手 · 概念设计</h3>
+        <p>面向知识工作者的 AI 助手概念：从用户场景出发定义对话结构与信息层级，探索「克制」的 AI 产品气质——功能可以多，感知必须简单。</p>
+        <div class="work-meta-row">
+          <span class="role">产品定义 · 交互概念 · 2026</span>
+          <a class="link-arrow" href="#contact">了解细节 →</a>
+        </div>
+      </div>
+      <div class="card reveal d1">
+        <div class="tag">Concept · AI Workflow</div>
+        <h3>AI 工作流编排 · 概念设计</h3>
+        <p>基于 Dify 的多步骤工作流设计练习：把模糊的业务需求拆解为「输入 → 编排 → 校验 → 输出」的结构化链路，输出可解释、可复用的流程。</p>
+        <div class="work-meta-row">
+          <span class="role">Dify · Structured Output · 2026</span>
+          <a class="link-arrow" href="#contact">了解细节 →</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="caption reveal" style="margin-top:24px">
+      ✓ 更多作品整理中：AI 产品拆解、需求分析文档与 Dify 应用实践。
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 05 CTA ===================== -->
+<section class="cta" id="contact" style="padding-top:0">
+  <div class="container">
+    <span class="eyebrow reveal">Contact<span class="idx">/ 05</span></span>
+    <h2 class="display reveal d1">有一个想法？<br>一起把它 <span class="grad-text">ship</span> 出去。</h2>
+    <p class="body reveal d2" style="margin-top:24px;max-width:520px">
+      无论是 AI 产品合作、岗位机会，还是想交流工具与打法，都欢迎聊聊。
+    </p>
+    <div class="hero-actions reveal d2" style="margin-top:36px">
+      <!-- TODO: 替换为你的真实邮箱 -->
+      <a class="btn btn-dark" href="mailto:your-email@example.com">发邮件给我</a>
+      <a class="btn btn-ghost" href="https://github.com/393535466-dev" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== 页脚 ===================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="wordmark" href="#top" style="color:#fff">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5L15 14H1z" fill="#fff"/></svg>
+          AI·PM
+        </a>
+        <p>把 AI 的能力，做成可信的产品。这里记录我的作品、思考与成长。</p>
+      </div>
+      <div class="footer-col">
+        <h5>导航</h5>
+        <ul>
+          <li><a href="#ai">AI 应用能力</a></li>
+          <li><a href="#pm">PM 思维能力</a></li>
+          <li><a href="#aesthetic">审美能力</a></li>
+          <li><a href="#works">精选作品</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>联系</h5>
+        <ul>
+          <!-- TODO: 替换为真实联系方式 -->
+          <li><a href="mailto:your-email@example.com">Email</a></li>
+          <li><a href="https://github.com/393535466-dev" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="#contact">微信（见站内）</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AI·PM — All rights reserved</span>
+      <span>Designed & built from prompt to product</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
 </html>
